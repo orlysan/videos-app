@@ -12,9 +12,14 @@ class SearchBar extends React.Component{
     onSearchInput = (e) =>{
         this.setState({searchImput:e.target.value})
     }
+
+    onSubmitVideo =(e) =>{
+        e.preventDefault();
+        this.props.searchInput(this.state.searchImput)
+    }
     render(){
         return (
-            <Form>
+            <Form onSubmit={this.onSubmitVideo}>
                 <Form.Control 
                     type="text" 
                     placeholder="Search for a Video"
