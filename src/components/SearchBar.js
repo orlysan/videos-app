@@ -1,9 +1,27 @@
 import React from 'react';
+import { Form  } from 'react-bootstrap';
 
 class SearchBar extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            searchImput: ""
+        }
+    }
+
+    onSearchInput = (e) =>{
+        this.setState({searchImput:e.target.value})
+    }
     render(){
         return (
-            <div>searchbar</div>
+            <Form>
+                <Form.Control 
+                    type="text" 
+                    placeholder="Search for a Video"
+                    vlaue={this.state.searchImput}
+                    onChange={this.onSearchInput}
+                    />
+            </Form>
         )
     }
 }
