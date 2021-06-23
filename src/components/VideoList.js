@@ -4,13 +4,16 @@ import { ListGroup } from 'react-bootstrap';
 
 
 class VideoList extends React.Component{
-    constructor(props){
-        super(props)
-    }
+  
     render(){
         const selectedVideo = this.props.onVideoSelect;
         const videosList = this.props.videoResults.map(item => {
-            return <VideoItem onVideoSelect={selectedVideo} video={item}/>
+            return (
+            <VideoItem 
+                key={item.id.viedoId}
+                onVideoSelect={selectedVideo} 
+                video={item}
+            />)
         })
        
         return (

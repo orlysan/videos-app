@@ -1,4 +1,10 @@
 .video-item {
     cursor: pointer;
     margin: 1.5rem;
+   
+}
+
+.video-item img{
+    width: 8rem;
+    height: 6rem;
 }

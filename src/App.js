@@ -5,6 +5,7 @@ import VideoDetails from './components/VideoDetails';
 import VideoList from './components/VideoList';
 import { Container , Row , Col } from 'react-bootstrap';
 import youtube from './API/youtube';
+import './App.css';
 
 
 
@@ -17,7 +18,7 @@ class App extends React.Component{
     }
   }
   render(){
-
+  
     //searchBar function
     this.onSearchSubmit = async (input) =>{
       const response = await youtube.get('/search', {
@@ -26,7 +27,8 @@ class App extends React.Component{
         }
       })
       this.setState({
-        videoResults: response.data.items
+        videoResults: response.data.items,
+        chosenVideo : response.data.items[0]
       })
     }
 
@@ -36,12 +38,12 @@ class App extends React.Component{
     }
 
     return (
-      <Container>
+      <Container className="m-3">
         <SearchBar 
           searchInput={this.onSearchSubmit}
         />
         <Row>
-          <Col>
+          <Col className="mt-3">
               <VideoDetails video={this.state.chosenVideo}/>
           </Col>
           <Col className="mt-2">
